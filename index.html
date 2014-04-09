@@ -4,35 +4,47 @@
     <title>Hot || Cold</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles/style.css"> 
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Denk+One%7CTrade+Winds">
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="js/app.js"></script>
   </head>
   <body>
     <div id="mainWrapper">
       <header id="title">
-        <h1><span id="hotText">HOT</span> or <span id="coldText">COLD</span></h1>
+        <h1>
+          <div id="hotTitle">HOT</div>
+          <div id="orTitle">or</div>
+          <div id="coldTitle">COLD</div>
+        </h1>
         <nav>
-          <button id="new">New Game</button>
-          <button id="howTo">What ?</button>
+          <button class="navButton" id="new">New Game</button>
+          ||
+          <button class="navButton" id="howTo">How to Play</button>
         </nav>
       </header>
       <div id="inputWrapper">
         <input class="userGuess" type="text"  maxlength="3">   
-        <button>
-          <img id="guessButton" src="images/guess_button.png" alt="guess button">
-        </button>
         <div id="hintWrapper">
           <div id="error">Please enter a number between 1 and 100</div>
-          <div id="warm">Warm</div>
-          <div id="cold">Cold</div>
           <div id="correct">CORRECT!</div>
+          <div id="iceColdHint">Ice Cold</div>
+          <div id="coldHint">Cold</div>
+          <div id="warmHint">Warm</div>
+          <div id="hotHint">Hot</div>
+          <div id="veryHotHint">Very Hot</div>
+        </div>
+        <div id="guesses clearFix">
+          <div class="iceCold floatL"></div>
+          <div class="cold floatL"></div>
+          <div class="warm floatL"></div>
+          <div class="hot floatL"></div>
+          <div class="veryHot floatL"></div>
         </div>
         <div id="guessWrapper">
-          <div class="answer">
+          <div class="answer clearFix">
             <div id="redBox"></div>
           </div>
-          <div class="lineWrapper clearFix">
+          <div class="lineWrapper">
             <div class="shortLine floatL"></div>
             <div class="shortLine floatL"></div>
             <div class="shortLine floatL"></div>
@@ -92,13 +104,6 @@
             <div class="shortLine floatL"></div>
             <div class="shortLine floatL"></div>
             <div class="shortLine floatL"></div>
-          </div>
-          <div id="guesses">
-            <div class="veryHot"></div>
-            <div class="hot"></div>
-            <div class="warm"></div>
-            <div class="cold"></div>
-            <div class="iceCold"></div> 
           </div>
         </div>
       </div>
@@ -118,7 +123,7 @@
             </li>
           </ul>
           <p>So, Are you ready?</p>
-          <button class="close">Got It!</button>
+          <button id="closeInstruc" class="navButton">Got It!</button>
         </div>
       </div>
     </div>
