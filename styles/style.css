@@ -252,12 +252,12 @@ nav {
 
 @font-face {
   font-family: 'SnowCap'; 
-  src: url('/fonts/SnowtopCaps.otf');
+  src: url('../fonts/SnowtopCaps.otf');
 }
 
 @font-face {
   font-family: 'Fire'; 
-  src: url('/fonts/GUEVARA_.ttf');
+  src: url('../fonts/GUEVARA_.ttf');
 }
 
 /*** header ***/
