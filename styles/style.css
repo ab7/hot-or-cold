@@ -235,8 +235,14 @@ th {
  ========================================================================== */
 
 body {
-  font-size: 100%;
+  background-color: #c6c6c6;
+  font: Verdana 100%;
   min-width: 900px;
+}
+
+nav {
+  margin-top: -15px;
+  margin-bottom: 35px;
 }
 
 
@@ -251,7 +257,7 @@ body {
 
 @font-face {
   font-family: 'Fire'; 
-  src: url('/fonts/charbb_reg.otf');
+  src: url('/fonts/GUEVARA_.ttf');
 }
 
 /*** header ***/
@@ -262,14 +268,36 @@ body {
   width: 900px;
 }
 
-#hotText {
+#hotTitle {
+  padding-left: 10px;
+  margin-bottom: -15px;
   color: red;
-  font: 2.6em 'Fire';
+  font: 2em 'Fire';
 }
 
-#coldText {
+#orTitle {
+  color: #3b3b3b;
+  font: 1em 'Denk One'
+}
+
+#coldTitle {
   color: blue;
   font: 2em 'SnowCap';
+}
+
+.navButton {
+  color: #3b3b3b;
+  font: 1em 'Denk One';
+  background-color: #d8d8d8;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  padding: 5px;
+  width: 100px
+}
+
+.navButton:hover {
+  background-color: #a8a8a8;
 }
 
 /*** instructions ***/
@@ -281,7 +309,7 @@ body {
 
 /*** main game wrapper ***/
 #inputWrapper {
-  margin: auto;
+  margin: 0 auto 150px;
   text-align: center;
   width: 900px;
 }
@@ -325,10 +353,20 @@ body {
   left: 55px;
 }
 
+/*** user input ***/
+.userGuess {
+  border-radius: 100%;
+  border: 2px dashed black;
+  outline: none;
+  height: 70px;
+  text-align: center;
+  width: 70px;
+}
+
 /*** thermometer lines ***/
 .lineWrapper {
   position: absolute;
-  left: 105px;
+  left: 113px;
 }
 
 .longLine, .shortLine{
@@ -350,56 +388,84 @@ body {
 /*** guesses placement ***/
 #guesses {
   font-size: .8em;
-  width: 830px;
-  position: absolute;
-  left: 55px;
-  bottom: 0
+  margin-left: 35px;
+  width: 875px;
+}
+
+.iceCold, .cold, .warm, .hot, .veryHot {
+  height: 45px;
 }
 
 .iceCold {
-  display: inline-block;
-  width: 20%;
+  background-image: linear-gradient(to bottom, #FFFFFF 0%, #0A33FF 100%);
+  margin-left: 55px;
+  width: 315px;
 }
 
 .cold {
-  display: inline-block;
-  width: 20%;
+  background-image: linear-gradient(to bottom, #FFFFFF 0%, #7AABFF 100%);
+  width: 180px;
 }
 
 .warm {
-  display: inline-block;
-  width: 30%;
+  background-image: linear-gradient(to bottom, #FFFFFF 0%, #FFBABA 100%);
+  width: 150px;
 }
 
 .hot {
-  display: inline-block;
-  width: 15%;
+  background-image: linear-gradient(to bottom, #FFFFFF 0%, #FF6E6E 100%);
+  width: 90px;
 }
 
 .veryHot {
-  display: inline-block;
-  width: 15%;
+  background-image: linear-gradient(to bottom, #FFFFFF 0%, #FF0000 100%);
+  width: 57px;
 }
 
 /*** hints ***/
 #hintWrapper {
-  height: 40px;
-}
-
-#warm {
-  display: none;
-}
-
-#cold {
-  display: none;
+  height: 50px;
+  font: 2em 'Denk One';
+  margin: 15px auto;
+  text-align: center;
+  width: 850px;
 }
 
 #correct {
+  color: red;
+  font-family: 'Trade Winds';
   display: none;
 }
 
 #error {
+  font-size: .6em;
   display: none;
+}
+
+#iceColdHint, #coldHint, #warmHint, #hotHint, #veryHotHint {
+  display: none;
+}
+
+#iceColdHint {
+  color: blue;
+  font-family: 'SnowCap';
+}
+
+#coldHint {
+  color: #7AABFF;
+}
+
+#warmHint {
+  color: #ff9f9f;
+}
+
+#hotHint {
+  color: #ff3b3b;
+}
+
+#veryHotHint {
+  color: red;
+  font-family: 'Fire';
 }
 
 
