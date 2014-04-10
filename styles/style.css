@@ -245,6 +245,10 @@ nav {
   margin-bottom: 35px;
 }
 
+h3 {
+  text-align: center;
+}
+
 
 /* ==========================================================================
  Custom styles
@@ -279,7 +283,7 @@ nav {
   margin: auto;
   margin-top: 150px;
   text-align: center;
-  width: 900px;
+  width: 800px;
 }
 
 #hotTitle {
@@ -317,8 +321,13 @@ nav {
 /*** instructions ***/
 #instructions {
   display: none;
+  margin: 0 auto 150px;
+  width: 400px;
+}
+
+#closeInstruc {
+  display: block;
   margin: auto;
-  width: 500px;
 }
 
 /*** main game wrapper ***/
@@ -537,6 +546,10 @@ nav {
 
 .clearfix {
   *zoom: 1;
+}
+
+.textCenter {
+  text-align: center;
 }
 
 /** {
