@@ -250,15 +250,29 @@ nav {
  Custom styles
  ========================================================================== */
 
+/*** custom fonts ***/
 @font-face {
-  font-family: 'SnowCap'; 
-  src: url('../fonts/SnowtopCaps.otf');
+  font-family: 'guevararegular';
+  src: url('/fonts/guevara_-webfont.eot');
+  src: url('/fonts/guevara_-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/guevara_-webfont.woff') format('woff'),
+       url('/fonts/guevara_-webfont.ttf') format('truetype'),
+       url('/fonts/guevara_-webfont.svg#guevararegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'Fire'; 
-  src: url('../fonts/GUEVARA_.ttf');
+  font-family: 'snowtop_capsregular';
+  src: url('/fonts/snowtopcaps-webfont.eot');
+  src: url('/fonts/snowtopcaps-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/snowtopcaps-webfont.woff') format('woff'),
+       url('/fonts/snowtopcaps-webfont.ttf') format('truetype'),
+       url('/fonts/snowtopcaps-webfont.svg#snowtop_capsregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
+
 
 /*** header ***/
 #title {
@@ -272,17 +286,17 @@ nav {
   padding-left: 10px;
   margin-bottom: -15px;
   color: red;
-  font: 2em 'Fire';
+  font: 2em 'guevararegular', Arial;
 }
 
 #orTitle {
   color: #3b3b3b;
-  font: 1em 'Denk One'
+  font: 1em 'Denk One';
 }
 
 #coldTitle {
   color: blue;
-  font: 2em 'SnowCap';
+  font: 2em 'snowtop_capsregular', Arial;
 }
 
 .navButton {
@@ -310,6 +324,7 @@ nav {
 /*** main game wrapper ***/
 #inputWrapper {
   margin: 0 auto 150px;
+  position: relative;
   text-align: center;
   width: 900px;
 }
@@ -335,7 +350,6 @@ nav {
   border: 2px solid black;
   border-radius: 100%;
   background-color: red;
-  font: 1em 'Fire';
   line-height: 68px;
   height: 70px;
   width: 70px;
@@ -433,22 +447,28 @@ nav {
 
 #correct {
   color: red;
-  font-family: 'Trade Winds';
+  font: 5em 'Trade Winds';
   display: none;
 }
 
 #error {
   font-size: .6em;
   display: none;
+  position: absolute;
+  left: 280px;
+  top: 100px;
 }
 
 #iceColdHint, #coldHint, #warmHint, #hotHint, #veryHotHint {
   display: none;
+  position: absolute;
+  left: 300px;
+  width: 300px;
 }
 
 #iceColdHint {
   color: blue;
-  font-family: 'SnowCap';
+  font-family: 'snowtop_capsregular';
 }
 
 #coldHint {
@@ -465,8 +485,26 @@ nav {
 
 #veryHotHint {
   color: red;
-  font-family: 'Fire';
+  font-family: 'guevararegular';
+  top: 90px;
+  
 }
+
+/*** fireworks ***/
+#fireworkWrapper {
+  height: 600px;
+  display: none;
+  margin: -600px auto;
+  position: relative;
+  width: 800px
+}
+
+.particle {
+  height:5px;
+  position:absolute;
+  width:5px;
+}
+
 
 
 /* ==========================================================================
