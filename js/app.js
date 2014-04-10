@@ -1,4 +1,63 @@
 $(function(){
+  // duplicate plugin
+  $.fn.duplicate = function(count, cloneEvents) {
+    var tmp = [];
+    for ( var i = 0; i < count; i++ ) {
+        $.merge( tmp, this.clone( cloneEvents ).get() );
+    }
+    return this.pushStack( tmp );
+  };
+  
+  // single firework explosion
+  function explode(elem_id) {
+    $('.particle').remove();
+    var fwArea = $(elem_id);
+    var colors = [  '#ffffff', '#ff0000', '#00ff00', '#ffff00',
+                '#00ffff', '#ff00ff', '#ffee00' ]
+    var emitter = $('<div></div>').addClass('particle');
+    var multicolor = Math.floor(Math.random()*10);
+    emitter.css({
+      left: Math.floor((800-2)*Math.random()) + 3 + 'px',
+      top: Math.floor((200-2)*Math.random()) + 3 + 'px',
+      background: colors[Math.floor(Math.random()*colors.length)]
+    });
+    fwArea.append(emitter.duplicate(55));
+    $('div', fwArea).each(function() {
+      var xoffset = Math.floor((10- -11)*Math.random()) + -10;
+      var yoffset = Math.floor((10- -11)*Math.random()) + -10;
+      if(multicolor > 5) {
+        $(this).css('background', colors[Math.floor(Math.random()*colors.length)]);
+      }
+      $(this).animate({
+        "left": "+=" + xoffset*15 + "px",
+        "top": "+=" + yoffset*15 + "px",
+      },  1100);
+      $(this).animate({
+        "opacity": "0.1",
+        "top": "+=25"
+        }, "slow");
+      });
+  }
+  
+  // fireworks loop
+  function fireworksLoop(count, container) {
+    $(container).show()
+    explode(container);
+    var i = 0;
+    function myLoop () {
+     setTimeout(function () {
+        explode(container);
+        i++;
+        if (i < count) {
+          myLoop();
+        } else {
+          $(container).hide()
+        }
+      }, 1500)
+    }
+    myLoop();
+  }
+  
   // display or hide instructions
   function intructions() {
     $('#howTo').click(function() {
@@ -15,6 +74,7 @@ $(function(){
 
   // start a new game
   function newGame() {
+    $('body').hide().fadeIn('slow');
     $('#correct').hide();
     $('#redBox').animate({width: '20px'}, 'slow');
     $('.userGuess').prop('placeholder', 'Enter');
@@ -31,13 +91,14 @@ $(function(){
             $('#correct').fadeIn();
             $('.userGuess').prop('disabled', true);
             $('.userGuess').prop('placeholder', 'Great!');
-          } else if (howFar <= 10) {
+            fireworksLoop(10, '#fireworkWrapper');
+          } else if (howFar <= 5) {
             $('#veryHotHint').fadeIn().finish().fadeOut(1000);
             $('#redBox').animate({width: '718px'}, 'slow');
-          } else if (howFar <= 20 && howFar > 10) {
+          } else if (howFar <= 15 && howFar > 5) {
             $('#hotHint').fadeIn().finish().fadeOut(1000);
             $('#redBox').animate({width: '630px'}, 'slow');
-          } else if (howFar <= 30 && howFar > 20) {
+          } else if (howFar <= 30 && howFar > 15) {
             $('#warmHint').fadeIn().finish().fadeOut(1000);
             $('#redBox').animate({width: '475px'}, 'slow');
           } else if (howFar <= 50 && howFar > 30) {
