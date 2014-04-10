@@ -253,22 +253,22 @@ nav {
 /*** custom fonts ***/
 @font-face {
   font-family: 'guevararegular';
-  src: url('/fonts/guevara_-webfont.eot');
-  src: url('/fonts/guevara_-webfont.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/guevara_-webfont.woff') format('woff'),
-       url('/fonts/guevara_-webfont.ttf') format('truetype'),
-       url('/fonts/guevara_-webfont.svg#guevararegular') format('svg');
+  src: url('../fonts/guevara_-webfont.eot');
+  src: url('../fonts/guevara_-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/guevara_-webfont.woff') format('woff'),
+       url('../fonts/guevara_-webfont.ttf') format('truetype'),
+       url('../fonts/guevara_-webfont.svg#guevararegular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'snowtop_capsregular';
-  src: url('/fonts/snowtopcaps-webfont.eot');
-  src: url('/fonts/snowtopcaps-webfont.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/snowtopcaps-webfont.woff') format('woff'),
-       url('/fonts/snowtopcaps-webfont.ttf') format('truetype'),
-       url('/fonts/snowtopcaps-webfont.svg#snowtop_capsregular') format('svg');
+  src: url('..//fonts/snowtopcaps-webfont.eot');
+  src: url('..//fonts/snowtopcaps-webfont.eot?#iefix') format('embedded-opentype'),
+       url('..//fonts/snowtopcaps-webfont.woff') format('woff'),
+       url('..//fonts/snowtopcaps-webfont.ttf') format('truetype'),
+       url('..//fonts/snowtopcaps-webfont.svg#snowtop_capsregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
