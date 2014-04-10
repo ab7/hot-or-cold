@@ -61,6 +61,7 @@ $(function(){
   // display or hide instructions
   function intructions() {
     $('#howTo').click(function() {
+      $('#fireworkWrapper').empty().hide();
       $('#inputWrapper').hide();
       $('#instructions').fadeIn(1000);
       $('#new, #howTo').prop('disabled', true).animate({'opacity': '0'});
@@ -74,6 +75,7 @@ $(function(){
 
   // start a new game
   function newGame() {
+    $('#fireworkWrapper').empty().hide();
     $('body').hide().fadeIn('slow');
     $('#correct').hide();
     $('#redBox').animate({width: '20px'}, 'slow');
