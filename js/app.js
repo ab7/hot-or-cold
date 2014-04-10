@@ -62,13 +62,13 @@ $(function(){
   function intructions() {
     $('#howTo').click(function() {
       $('#inputWrapper').hide();
-      $('nav').hide();
       $('#instructions').fadeIn(1000);
+      $('#new, #howTo').prop('disabled', true).animate({'opacity': '0'});
     });
     $('#closeInstruc').click(function() {
       $('#instructions').hide();
-      $('nav').fadeIn(1000);
-      $('#inputWrapper').fadeIn(1000);
+      $('#new, #howTo').prop('disabled', false).animate({'opacity': '1'});
+      $('nav, #inputWrapper').fadeIn(1000);
     });
   }
 
