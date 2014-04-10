@@ -287,6 +287,7 @@ h3 {
 }
 
 #hotTitle {
+  display: block;
   padding-left: 10px;
   margin-bottom: -15px;
   color: red;
@@ -294,6 +295,7 @@ h3 {
 }
 
 #orTitle {
+  display: block;
   color: #3b3b3b;
   font: 1em 'Denk One';
 }
@@ -409,12 +411,6 @@ h3 {
 
 
 /*** guesses placement ***/
-#guesses {
-  font-size: .8em;
-  margin-left: 35px;
-  width: 875px;
-}
-
 .iceCold, .cold, .warm, .hot, .veryHot {
   height: 45px;
 }
@@ -505,7 +501,8 @@ h3 {
   display: none;
   margin: -600px auto;
   position: relative;
-  width: 800px
+  width: 800px;
+  z-index: -1;
 }
 
 .particle {
