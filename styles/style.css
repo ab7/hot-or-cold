@@ -461,7 +461,7 @@ h3 {
   display: none;
   position: absolute;
   left: 280px;
-  top: 100px;
+  top: 155px;
 }
 
 #iceColdHint, #coldHint, #warmHint, #hotHint, #veryHotHint {
@@ -491,7 +491,7 @@ h3 {
 #veryHotHint {
   color: red;
   font-family: 'guevararegular';
-  top: 90px;
+  top: 155px;
   
 }
 
