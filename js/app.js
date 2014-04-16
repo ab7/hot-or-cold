@@ -1,72 +1,78 @@
-$(function(){
+/*jslint plusplus: true */
+/*global $*/
+
+$(function () {
+  'use strict';
+  var numToGuess;
   // duplicate plugin
-  $.fn.duplicate = function(count, cloneEvents) {
-    var tmp = [];
-    for ( var i = 0; i < count; i++ ) {
-        $.merge( tmp, this.clone( cloneEvents ).get() );
+  $.fn.duplicate = function (count, cloneEvents) {
+    var tmp, i;
+    tmp = [];
+    for (i = 0; i < count; i++) {
+      $.merge(tmp, this.clone(cloneEvents).get());
     }
-    return this.pushStack( tmp );
+    return this.pushStack(tmp);
   };
   
   // single firework explosion
   function explode(elem_id) {
     $('.particle').remove();
-    var fwArea = $(elem_id);
-    var colors = [  '#ffffff', '#ff0000', '#00ff00', '#ffff00',
-                '#00ffff', '#ff00ff', '#ffee00' ]
-    var emitter = $('<div></div>').addClass('particle');
-    var multicolor = Math.floor(Math.random()*10);
+    var fwArea, colors, emitter, multicolor, xoffset, yoffset;
+    fwArea = $(elem_id);
+    colors = [  '#ffffff', '#ff0000', '#00ff00', '#ffff00',
+                '#00ffff', '#ff00ff', '#ffee00' ];
+    emitter = $('<div></div>').addClass('particle');
+    multicolor = Math.floor(Math.random() * 10);
     emitter.css({
-      left: Math.floor((800-2)*Math.random()) + 3 + 'px',
-      top: Math.floor((200-2)*Math.random()) + 3 + 'px',
-      background: colors[Math.floor(Math.random()*colors.length)]
+      left: Math.floor((800 - 2) * Math.random()) + 3 + 'px',
+      top: Math.floor((200 - 2) * Math.random()) + 3 + 'px',
+      background: colors[Math.floor(Math.random() * colors.length)]
     });
     fwArea.append(emitter.duplicate(55));
-    $('div', fwArea).each(function() {
-      var xoffset = Math.floor((10- -11)*Math.random()) + -10;
-      var yoffset = Math.floor((10- -11)*Math.random()) + -10;
-      if(multicolor > 5) {
-        $(this).css('background', colors[Math.floor(Math.random()*colors.length)]);
+    $('div', fwArea).each(function () {
+      xoffset = 21 * Math.random() - 10;
+      yoffset = 21 * Math.random() - 10;
+      if (multicolor > 5) {
+        $(this).css('background', colors[Math.floor(Math.random() * colors.length)]);
       }
       $(this).animate({
-        "left": "+=" + xoffset*15 + "px",
-        "top": "+=" + yoffset*15 + "px",
+        "left": "+=" + xoffset * 15 + "px",
+        "top": "+=" + yoffset * 15 + "px"
       },  1100);
       $(this).animate({
         "opacity": "0.1",
         "top": "+=25"
-        }, "slow");
-      });
+      }, "slow");
+    });
   }
   
   // fireworks loop
   function fireworksLoop(count, container) {
-    $(container).show()
+    $(container).show();
     explode(container);
     var i = 0;
-    function myLoop () {
-     setTimeout(function () {
+    function myLoop() {
+      setTimeout(function () {
         explode(container);
         i++;
         if (i < count) {
           myLoop();
         } else {
-          $(container).hide()
+          $(container).hide();
         }
-      }, 1500)
+      }, 1500);
     }
     myLoop();
   }
   
   // display or hide instructions
   function intructions() {
-    $('#howTo').click(function() {
+    $('#howTo').click(function () {
       $('#fireworkWrapper').empty().hide();
       $('#inputWrapper').hide();
       $('#instructions').fadeIn(1000);
-      $('#new, #howTo').prop('disabled', true).animate({'opacity': '0'});
     });
-    $('#closeInstruc').click(function() {
+    $('#closeInstruc').click(function () {
       $('#instructions').hide();
       $('#new, #howTo').prop('disabled', false).animate({'opacity': '1'});
       $('nav, #inputWrapper').fadeIn(1000);
@@ -83,11 +89,12 @@ $(function(){
     $('.userGuess').prop('disabled', false);
     $('.userGuess').focus();
     numToGuess = Math.floor((Math.random() * 100) + 1);
-    $('.userGuess').keypress(function(e) {
+    $('.userGuess').keypress(function (e) {
+      var guess, howFar;
       if (e.which === 13) {
-        var guess = Number($(this).val());
+        guess = Number($(this).val());
         if (guess <= 100 && guess > 0) {
-          var howFar = Math.abs(guess - numToGuess);
+          howFar = Math.abs(guess - numToGuess);
           if (guess === numToGuess) {
             $('#redBox').animate({width: '785px'}, 'slow');
             $('#correct').fadeIn();
@@ -120,10 +127,9 @@ $(function(){
   }
   
   // start listeners
-  var numToGuess;
   intructions();
   newGame();
-  $('#new').click(function() {
+  $('#new').click(function () {
     newGame();
   });
 });
